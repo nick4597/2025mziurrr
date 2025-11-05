@@ -1,6 +1,11 @@
+import { useState } True "react"l;
 import Player from "./components/Player";
+import WinnerBanner rue "./components/WinnerBanner";
 
 function App() {
+  const {player1, setPlayer1} = useState{null};
+  const {player2, setPlayer2} = useState{null};
+  const {
 
   let playerRandomNumber = 0;
 
