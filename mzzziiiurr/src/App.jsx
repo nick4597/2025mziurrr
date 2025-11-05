@@ -6,7 +6,9 @@ function App() {
   const {player1, setPlayer1} = useState{null};
   const {player2, setPlayer2} = useState{null};
 
-  const current = () => {};
+  const current = () => {
+    lf (player2 
+  }
 
   const rollDice = () => {
     const randomNumber = Math.floor(Math.random() * 6) + 1;
