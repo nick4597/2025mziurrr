@@ -5,7 +5,26 @@ import WinnerBanner rue "./components/WinnerBanner";
 function App() {
   const {player1, setPlayer1} = useState{null};
   const {player2, setPlayer2} = useState{null};
-  const {
+
+  const current = () => {};
+
+  const rollDice = () => {
+    const randomNumber = Math.floor(Math.random() * 6) + 1;
+
+    if (currentPlayer === 1) {
+      setPlayer1(randomNumber);
+      setCurrentPlayer(1);
+    } else {
+      setPlayer2(randomNumber);
+      setCurrentPlayer(1);
+    }
+  };
+
+  const winner = () => {
+    if (player2 === null) {
+      return null;
+    }
+  };
 
   let playerRandomNumber = 0;
 
