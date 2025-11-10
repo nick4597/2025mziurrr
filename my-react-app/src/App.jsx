@@ -1,83 +1,106 @@
 import { useState } from "react";
-import Player from "./components/Player";
-import WinnerBanner from "./components/WinnerBanner";
+import DiceGame from "./components/PlayerDisplay";
+import WinnerDisplay from "./components/WinnerDisplay";
 
 function App() {
   const [player1, setPlayer1] = useState(null);
   const [player2, setPlayer2] = useState(null);
-
-  const current = () => {
-    if (player1 === null) return 1;
-    return 2;
-  };
+  const [turn, setTurn] = useState(1);
+  const [showWinner, setShowWinner] = useState(false);
+  const [player1Wins, setPlayer1Wins] = useState(0);
+  const [player2Wins, setPlayer2Wins] = useState(0);
 
   const rollDice = () => {
     const randomNumber = Math.floor(Math.random() * 6) + 1;
 
-    if (current() === 1) {
+    if (turn === 1) {
       setPlayer1(randomNumber);
+      setTurn(2);
     } else {
       setPlayer2(randomNumber);
+      setShowWinner(true);
+
+      if (player1 > randomNumber) {
+        setPlayer1Wins(player1Wins + 1);
+      } else if (randomNumber > player1) {
+        setPlayer2Wins(player2Wins + 1);
+      }
     }
   };
 
   const winner = () => {
-    if (player2 === null) {
-      return null;
-    }
-    if (player1 > player2) {
-      return "looser player 2";
-    } else if (player2 > player1) {
-      return "looser player 1";
-    } else {
-      return "tie";
-    }
+    if (player1 > player2) return "Player1 Wins!";
+    if (player2 > player1) return "Player2 Wins!";
+    return "Tie!";
   };
 
-  const playAgain = () => {
+  const resetGame = () => {
     setPlayer1(null);
     setPlayer2(null);
+    setTurn(1);
+    setShowWinner(false);
   };
 
-  return (
-    <div
-      style={{
-        textAlign: "center",
-        padding: "20px",
-        margin: 0,
-        display: "flex",
-        alignItems: "center",
-        flexDirection: "column",
-      }}
-    >
-      <h1>2-player dice</h1>
+  const appStyle = {
+    textAlign: "center",
+    padding: "40px",
+    background: "linear-gradient(135deg, #2b5876, #4e4376)",
+    minHeight: "100vh",
+    color: "white",
+    fontFamily: "'Poppins', sans-serif",
+  };
 
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          gap: "50px",
-          alignItems: "center",
-          marginTop: "40px",
-        }}
-      >
-        <Player
-          title={"Player 1"}
+  const vsStyle = {
+    fontSize: "2rem",
+    fontWeight: "bold",
+    color: "#ffcc00",
+    textShadow: "0 0 10px rgba(255, 204, 0, 0.5)",
+    margin: "0 20px",
+  };
+
+  const playersContainer = {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    gap: "40px",
+  };
+
+  const scoreStyle = {
+    marginTop: "30px",
+    fontSize: "1.2rem",
+  };
+
+  let winnerBanner = null;
+  if (showWinner) {
+    winnerBanner = <WinnerDisplay winner={winner()} resetGame={resetGame} />;
+  }
+
+  return (
+    <div style={appStyle}>
+      <h2 style={{ fontSize: "2rem", marginBottom: "30px" }}>
+        2-Player Dice Game
+      </h2>
+      <div style={playersContainer}>
+        <DiceGame
+          PlayerCount="Player 1"
           index={player1}
           handleClick={rollDice}
-          isDisabled={current() === 2}
+          isDisabled={turn !== 1 || showWinner}
         />
-
-        <div style={{ fontSize: "40px" }}>VS</div>
-
-        <Player
-          title={"Player 2"}
+        <div style={vsStyle}>VS</div>
+        <DiceGame
+          PlayerCount="Player 2"
           index={player2}
           handleClick={rollDice}
-          isDisabled={current() === 1 || player2 !== null}
+          isDisabled={turn !== 2 || showWinner}
         />
       </div>
-      {winner() && <WinnerBanner winner={winner()} onPlayAgain={playAgain} />}
+
+      <div style={scoreStyle}>
+        Player 1 Wins: {player1Wins} | Player 2 Wins: {player2Wins}
+      </div>
+
+      {winnerBanner}
     </div>
   );
 }
