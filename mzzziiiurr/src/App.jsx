@@ -26,9 +26,9 @@ function App() {
       return null;
     }
     if (player1 > player2) {
-      return "loser player 2";
+      return "looser player 2";
     } else if (player2 > player1) {
-      return "loser player 1";
+      return "looser player 1";
     } else {
       return "tie";
     }
@@ -50,7 +50,7 @@ function App() {
         flexDirection: "column",
       }}
     >
-      <h1>2-Player Dice Game</h1>
+      <h1>2-player dice</h1>
 
       <div
         style={{
