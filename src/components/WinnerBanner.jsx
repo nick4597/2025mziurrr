@@ -1,8 +1,8 @@
 export default function WinnerBanner({ winner, onPlayAgain, rounds = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]}) {
   return (
     <div style={{
-        backgroundColor: winner === "tie" ? "#FFA500" : "#4CAF50",
-        color: "white",
+        backgroundColor: winner === "tie" ? "#ffa600ff" : "#00ff08ff",
+        color: "blue",
         padding: "40px 60px",
         borderRadius: "20px",
         boxShadow: "0 10px 40px rgba(0,0,0,0.3)",
@@ -11,9 +11,9 @@ export default function WinnerBanner({ winner, onPlayAgain, rounds = [1, 2, 3, 4
       }}
     >
       <div style={{
-        fontSize: "18px",
-        fontWeight: "700",
-        marginBottom: "6px"
+        fontSize: "20px",
+        fontWeight: "600",
+        marginBottom: "5px"
       }}>
         Winner of Round {rounds[0]}
       </div>
@@ -27,7 +27,7 @@ export default function WinnerBanner({ winner, onPlayAgain, rounds = [1, 2, 3, 4
           padding: "12px 30px",
           fontSize: "18px",
           backgroundColor: "white",
-          color: winner === "tie" ? "#FFA500" : "#4CAF50",
+          color: winner === "tie" ? "#ffa600ff" : "#05ff0eff",
           border: "none",
           borderRadius: "10px",
           cursor: "pointer",

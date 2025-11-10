@@ -10,8 +10,8 @@ export default function Player({ title, index, handleClick, isDisabled }) {
   return (
     <>
       <div>
-        <h3 style={{ fontSize: "20px" }}>{title}</h3>
-        <div style={{ fontSize: "80px" }}>{diceEmoji}</div>
+        <h3 style={{ fontSize: "30px" }}>{title}</h3>
+        <div style={{ fontSize: "70px" }}>{diceEmoji}</div>
         <button onClick={handleClick} style={buttonStyle} disabled={isDisabled}>
           Roll Dice
         </button>
@@ -21,7 +21,7 @@ export default function Player({ title, index, handleClick, isDisabled }) {
 }
 
 const disabledStyle = {
-  backgroundColor: "#9e9e9e",
+  backgroundColor: "#6d6d6dff",
   cursor: "not-allowed",
   opacity: 0.8,
 };
@@ -29,7 +29,7 @@ const disabledStyle = {
 const baseStyle = {
   margin: "12px",
   padding: "15px 30px",
-  fontSize: "20px",
+  fontSize: "25px",
   cursor: "pointer",
   borderRadius: "10px",
   backgroundColor: "pink",
