@@ -15,26 +15,25 @@ export default function DiceGame({
   return (
     <div>
       <h3>{PlayerCount}</h3>
-      <div style={{ fontSize: "60px" }}>{diceEmoji}</div>
+      <div style={{ fontSize: "100px" }}>{diceEmoji}</div>
       <button onClick={handleClick} disabled={isDisabled} style={buttonStyle}>
         Roll Dice
       </button>
     </div>
   );
 }
-const disabledStyle = {
-  backgroundColor: "#9e9e9e",
-  cursor: "not-allowed",
-  opacity: 0.6,
-};
 
 const baseStyle = {
-  margin: "10px",
-  padding: "15px 30px",
-  fontSize: "20px",
+  fontSize: "30px",
+  margin: "30px",
   cursor: "pointer",
-  borderRadius: "10px",
-  backgroundColor: "#4CAF50",
-  color: "white",
-  border: "none",
+  padding: "15px 35px",
+  color: "#ffffffff",
+  backgroundColor: "#00d0ffff",
+}
+
+const disabledStyle = {
+  backgroundColor: "#535353ff",
+  cursor: "not-allowed",
+  opacity: 0.2,
 };

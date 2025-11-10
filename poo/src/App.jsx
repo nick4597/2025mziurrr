@@ -51,11 +51,10 @@ function App() {
   };
 
   const vsStyle = {
-    fontSize: "2rem",
-    fontWeight: "bold",
-    color: "#ffcc00",
-    textShadow: "0 0 10px rgba(255, 204, 0, 0.5)",
+    fontSize: "30px",
     margin: "0 20px",
+    fontWeight: "bold",
+    color: "#d400ffff",
   };
 
   const playersContainer = {
@@ -67,7 +66,7 @@ function App() {
 
   const scoreStyle = {
     marginTop: "30px",
-    fontSize: "1.2rem",
+    fontSize: "30px",
   };
 
   let winnerBanner = null;
@@ -77,8 +76,8 @@ function App() {
 
   return (
     <div style={appStyle}>
-      <h2 style={{ fontSize: "2rem", marginBottom: "30px" }}>
-        2-Player Dice Game
+      <h2 style={{ fontSize: "50px", marginBottom: "50px" }}>
+        2 player dice
       </h2>
       <div style={playersContainer}>
         <DiceGame
