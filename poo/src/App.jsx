@@ -2,6 +2,15 @@ import { useState } from "react";
 import DiceGame from "./components/PlayerDisplay";
 import WinnerDisplay from "./components/WinnerDisplay";
 
+fimction GameOver()
+{
+  if(round >= gameOverCount)
+  {
+    return true;
+  }
+   return false;
+}
+
 function App() {
   const [player1, setPlayer1] = useState(null);
   const [player2, setPlayer2] = useState(null);
