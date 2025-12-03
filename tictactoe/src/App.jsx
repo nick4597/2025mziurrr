@@ -1,16 +1,44 @@
+import { useState } from "react";
 import Player from "./components/Player";
 import GameBoard from "./components/GameBoard";
+import Log from "./components/Log";
 
 function App() {
+  const [activePlayer, setActivePlayer] = useState("X");
+
+  function handleCurrentPlayerChange() {
+    // setActivePlayer((prevValue) => (prevValue === "X" ? "O" : "X"));
+    // {მოვიფიქროთ როგორ შევინახოთ სვლები და დავლოგოთ კონსოლში}
+    // {ვეცადოთ ავარიდოთ თავი state-ების ერთამნეთში არევას}
+    // {დავაკრვირდეთ და ავირიდოთ ერიდაიგივე ინფორმაციის შენახვა თავიდან}
+    // {Logs component-ში დავლოგოთ სვლები}
+    // {GameBoard component-ში დავმატოთ gameTurns პარამეტრი და დავმეპოთ სვლები, მოვაშოროთ ზედმეტი state-ის გამოყენება}
+
+    setActivePlayer((prevValue) => (prevValue === "X" ? "O" : "X"));
+  }
+
   return (
     <main>
       <div id="game-container">
-        <ol id="players">
-          <Player name="Player 1" symbol="X" />
-          <Player name="Player 2" symbol="O" />
+        <ol id="players" className="highlight-player">
+          <Player
+            isActive={activePlayer === "X"}
+            initialName="Player 1"
+            symbol="X"
+          />
+          <Player
+            isActive={activePlayer === "O"}
+            initialName="Player 2"
+            symbol="O"
+          />
         </ol>
-        <GameBoard />
+        <GameBoard
+          onSquareSeelct={handleCurrentPlayerChange}
+          activePlayer={activePlayer}
+        />
       </div>
+
+      <Log />
     </main>
   );
 }
