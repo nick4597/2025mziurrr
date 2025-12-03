@@ -7,13 +7,6 @@ function App() {
   const [activePlayer, setActivePlayer] = useState("X");
 
   function handleCurrentPlayerChange() {
-    // setActivePlayer((prevValue) => (prevValue === "X" ? "O" : "X"));
-    // {მოვიფიქროთ როგორ შევინახოთ სვლები და დავლოგოთ კონსოლში}
-    // {ვეცადოთ ავარიდოთ თავი state-ების ერთამნეთში არევას}
-    // {დავაკრვირდეთ და ავირიდოთ ერიდაიგივე ინფორმაციის შენახვა თავიდან}
-    // {Logs component-ში დავლოგოთ სვლები}
-    // {GameBoard component-ში დავმატოთ gameTurns პარამეტრი და დავმეპოთ სვლები, მოვაშოროთ ზედმეტი state-ის გამოყენება}
-
     setActivePlayer((prevValue) => (prevValue === "X" ? "O" : "X"));
   }
 
