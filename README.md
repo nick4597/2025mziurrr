@@ -1,16 +1,31 @@
-# React + Vite
+# Webpack Frontend Starterkit
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A lightweight foundation for your next webpack based frontend project.
 
-Currently, two official plugins are available:
+### Installation
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+```sh
+npm install
+```
 
-## React Compiler
+### Start Dev Server
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+```sh
+npm start
+```
 
-## Expanding the ESLint configuration
+### Build Prod Version
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+```sh
+npm run build
+```
+
+### Features:
+
+- ES6 Support via [babel](https://babeljs.io/) (v7)
+- JavaScript Linting via [eslint](https://eslint.org/)
+- SASS Support via [sass-loader](https://github.com/jtangelder/sass-loader)
+- Autoprefixing of browserspecific CSS rules via [postcss](https://postcss.org/) and [postcss-preset-env](https://github.com/csstools/postcss-preset-env)
+- Style Linting via [stylelint](https://stylelint.io/)
+
+When you run `npm run build` we use the [mini-css-extract-plugin](https://github.com/webpack-contrib/mini-css-extract-plugin) to move the css to a separate file. The css file gets included in the head of the `index.html`.
